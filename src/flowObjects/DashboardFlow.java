@@ -30,7 +30,7 @@ public class DashboardFlow {
 			
 	}
 	
-	public static List<Integer> getNoteData(WebDriver driver, int noteNumber) {
+	public static List<Integer> getNoteData(WebDriver driver, int minNoteNumber) {
 		
 		List<Integer> postNoteNumber = new ArrayList<Integer>();
 		List<WebElement> posts = DashboardPage.postsList(driver, 1);
@@ -40,13 +40,14 @@ public class DashboardFlow {
 			String dataCountString = singlePost.getAttribute("data-count");
 			int dataCountInt = Integer.parseInt(dataCountString);
 				
-				if (dataCountInt >= noteNumber) {
+				if (dataCountInt >= minNoteNumber) {
 					postNoteNumber.add(dataCountInt);
 				}
 		}
 		
 		Collections.sort(postNoteNumber, Collections.reverseOrder());
 		return postNoteNumber;
+	}
 				
 				
 //		for (int i: postNoteNumber) {
@@ -54,7 +55,22 @@ public class DashboardFlow {
 //		}
 		
 		
+	
+	public static List<Integer> topFiveNotes(WebDriver driver) {
 		
+		List<Integer> postNoteNumber = new ArrayList<Integer>();
+		List<WebElement> posts = DashboardPage.postsList(driver, 1);
+		
+		for (int i = 0; i < posts.size(); i++) {
+			WebElement singlePost = posts.get(i).findElement(By.cssSelector("span.note_link_current"));
+			String dataCountString = singlePost.getAttribute("data-count");
+			int dataCountInt = Integer.parseInt(dataCountString);
+			postNoteNumber.add(dataCountInt); 
+		}
+		
+		Collections.sort(postNoteNumber, Collections.reverseOrder());
+		return postNoteNumber.subList(0, 5);
+	
 	}
 
 

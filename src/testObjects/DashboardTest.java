@@ -54,5 +54,18 @@ public class DashboardTest {
 		
 		
 	}
+	
+	@Test
+	public void topFiveNotes() {
+		
+		
+		List<Integer> result = DashboardFlow.topFiveNotes(driver);
+		
+		for (int i = 1; i < result.size(); i++) {
+			Assert.assertTrue(result.get(i) <= result.get(i - 1));
+		}
+		
+		
+	}
 
 }
