@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name ="DashboardScroll Test Suite">
+	<test name="dashboardScroll">
+	<parameter name="browser" value="Chrome"/>
+	<parameter name="username" value="zahrateststumblr@mailinator.com"/>
+	<parameter name="password" value="testpass123"/>
+		<classes>
+			<class name="testObjects.DashboardTest">
+				<methods>
+					<include name ="notesAbove1000"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
