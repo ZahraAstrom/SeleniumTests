@@ -73,5 +73,33 @@ public class DashboardFlow {
 	
 	}
 
+	public static List<Integer> scrollForNotes(WebDriver driver, int postsRequired) {
+		
+		List<Integer> postNoteNumber = new ArrayList<Integer>();
+		List<WebElement> posts = DashboardPage.postsList(driver, 1);
+		
+		Actions scrollAction = new Actions(driver);
+		
+		for (int i = 0; i < postsRequired; i++) {
+			WebElement singlePost = posts.get(i).findElement(By.cssSelector("span.note_link_current"));
+			String dataCountString = singlePost.getAttribute("data-count");
+			int dataCountInt = Integer.parseInt(dataCountString);
+			postNoteNumber.add(dataCountInt); 
+			
+			
+				if (i == posts.size()-1) {
+					scrollAction.moveToElement(posts.get(posts.size()-1));
+					scrollAction.perform();
+					
+					posts = DashboardPage.postsList(driver, posts.size());
+					
+				}		
+				
+		}
+		
+		Collections.sort(postNoteNumber, Collections.reverseOrder());
+		return postNoteNumber.subList(0, 5);
+		
+	}
 
 }
