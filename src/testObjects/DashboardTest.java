@@ -55,6 +55,7 @@ public class DashboardTest {
 		
 	}
 	
+
 	@Test
 	public void topFiveNotes() {
 		
@@ -63,8 +64,18 @@ public class DashboardTest {
 		
 		for (int i = 1; i < result.size(); i++) {
 			Assert.assertTrue(result.get(i) <= result.get(i - 1));
-		}
+		}		
+	}
+	
+	
+	@Test
+	public void scrollTopFiveOfN() {
 		
+List<Integer> result = DashboardFlow.scrollForNotes(driver, 50);
+		
+		for (int i = 1; i < result.size(); i++) {
+			Assert.assertTrue(result.get(i) <= result.get(i - 1));
+		}
 		
 	}
 
