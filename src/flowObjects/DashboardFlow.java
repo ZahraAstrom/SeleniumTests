@@ -2,6 +2,7 @@ package flowObjects;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -101,5 +102,47 @@ public class DashboardFlow {
 		return postNoteNumber.subList(0, 5);
 		
 	}
+	
+	public static List<ArrayList<String>> topFiftyTitles (WebDriver driver) {
+		
+		List<ArrayList <String>> titledPosts = new ArrayList<ArrayList <String>>();
+		List<WebElement> posts = DashboardPage.postsList(driver, 1);
+		
+		Actions scrollAction = new Actions(driver);
+		
+		for (int i = 0; titledPosts.size() < 50; i++) {
+			List<WebElement> postTitle = posts.get(i).findElements(By.cssSelector("div.post_title"));
+				if ( postTitle.size() != 0 ) {
+					WebElement singlePost = posts.get(i).findElement(By.cssSelector("span.note_link_current"));
+					String dataCountString = singlePost.getAttribute("data-count");
+					String titleString = postTitle.get(0).getText();
+					
+					ArrayList<String> currentPost = new ArrayList<String>();
+					currentPost.add(titleString);
+					currentPost.add(dataCountString);
+					titledPosts.add(currentPost);
+				}
+				
+				if (i == posts.size()-1) {
+					scrollAction.moveToElement(posts.get(posts.size()-1));
+					scrollAction.perform();
+					
+					posts = DashboardPage.postsList(driver, posts.size());
+				}
+							
+		}
+		
+		Collections.sort(titledPosts, new Comparator<ArrayList<String>>() {
+
+			@Override
+			public int compare(ArrayList<String> arg0, ArrayList<String> arg1) {
+				return Integer.compare(Integer.parseInt(arg1.get(1)), Integer.parseInt(arg0.get(1)));
+			}
+			
+		});
+		return titledPosts;
+	}
+	
+	
 
 }
