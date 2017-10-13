@@ -1,5 +1,6 @@
 package testObjects;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -71,12 +72,26 @@ public class DashboardTest {
 	@Test
 	public void scrollTopFiveOfN() {
 		
-List<Integer> result = DashboardFlow.scrollForNotes(driver, 50);
+		List<Integer> result = DashboardFlow.scrollForNotes(driver, 50);
 		
 		for (int i = 1; i < result.size(); i++) {
 			Assert.assertTrue(result.get(i) <= result.get(i - 1));
 		}
 		
+	}
+	
+	@Test
+	public void topNotesOfTitledPosts() {
+		
+		List<ArrayList<String>> result = DashboardFlow.topFiftyTitles(driver);
+		
+		for (int i = 1; i < result.size(); i++) {
+			Assert.assertTrue(Integer.parseInt(result.get(i).get(1)) <= Integer.parseInt(result.get(i - 1).get(1)));
+		}
+		
+		Assert.assertTrue(result.size() == 50);
+		
+		driver.quit();
 	}
 
 }
