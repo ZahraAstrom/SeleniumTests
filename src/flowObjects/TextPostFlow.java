@@ -37,4 +37,17 @@ public class TextPostFlow {
 	    return new String(text);
 	
 	}
+	
+	public static void reblogPost(WebDriver driver, String randomBody) {
+		
+		TextPostPage.reblogButton(driver).click();
+		
+		TextPostPage.mainTextField(driver).sendKeys(randomBody);
+		
+		TextPostPage.postButton(driver).click();
+		
+		TextPostPage.disappearPost(driver);
+		
+		TextPostPage.dashboardButton(driver).click();
+	}
 }

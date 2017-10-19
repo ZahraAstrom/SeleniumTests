@@ -19,5 +19,5 @@ public class DashboardPage {
 		List<WebElement> posts = postsList(driver, 1);
 		return posts.get(posts.size() -1);
 	}
-
+		
 }

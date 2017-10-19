@@ -56,4 +56,20 @@ public class TextPostTest {
 		
 	}
 	
+	@Test
+	public void reblogPost() {
+		String random = TextPostFlow.generateString(10);
+		String randomBody = "body" + random;
+		
+		TextPostFlow.reblogPost(driver, randomBody);
+		
+		Assert.assertTrue(TextPostPage.createdTextPost(driver, randomBody).getText().contains(randomBody));
+		
+	     System.out.println("Successfully reblogged a post");
+			
+	     // Close the driver
+	     driver.quit();
+		
+	}
+	
 }
