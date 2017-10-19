@@ -50,4 +50,12 @@ public class TextPostPage {
 				.until(ExpectedConditions.numberOfElementsToBeLessThan(By.cssSelector("div.post-container-inner"), 1));
 	}
 	
+	public static WebElement reblogButton(WebDriver driver) {
+		return new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.post_control.post-control-icon.reblog")));
+		
+	}
+	
+	public static WebElement dashboardButton(WebDriver driver) {
+		return new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.cssSelector("div#home_button.tab.iconic.tab_home.selected")));
+	}
 }
