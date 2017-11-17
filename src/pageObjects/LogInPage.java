@@ -12,7 +12,7 @@ public class LogInPage {
 	
 	private static WebElement element = null;
 	
-	private static WebElement text(WebDriver driver, By locator) {
+	private static WebElement wait(WebDriver driver, By locator) {
 		return new WebDriverWait(driver, 10)
 				.until(ExpectedConditions.elementToBeClickable(locator));
 	}
@@ -23,7 +23,7 @@ public class LogInPage {
 //		
 //		return element;
 		
-		return text(driver, By.cssSelector("button#signup_login_button span.signup_get_started_btn"));
+		return wait(driver, By.cssSelector("button#signup_login_button span.signup_get_started_btn"));
 	}
 	
 	public static WebElement emailInput(WebDriver driver) {
