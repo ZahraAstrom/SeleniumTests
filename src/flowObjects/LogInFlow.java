@@ -16,6 +16,10 @@ public class LogInFlow {
 		
 		LogInPage.nextButton(driver).click();
 		
+		
+		if (LogInPage.magicBtn(driver).size() > 0) {
+			LogInPage.usePassBtn(driver).click();
+		}
 	
 		LogInPage.passwordInput(driver).sendKeys(password);
 		
