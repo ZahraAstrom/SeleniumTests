@@ -1,10 +1,13 @@
 package testObjects;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -27,6 +30,12 @@ public class DashboardTest {
 			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Zee\\Documents\\Selenium Projects\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
+		
+		else if(browser.equalsIgnoreCase("Remote")) {
+			DesiredCapabilities capability = DesiredCapabilities.chrome();
+			driver = new RemoteWebDriver(new URL("http://192.168.88.248:4444/wd/hub"), capability);
+		}
+		
 		else {
 			throw new Exception("Browser is not correct.");
 		}
