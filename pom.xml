@@ -49,6 +49,5 @@
   <properties>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	<suiteXmlFile>testng.xml</suiteXmlFile>
-  	<skipTests>true</skipTests>
   </properties>
 </project>
