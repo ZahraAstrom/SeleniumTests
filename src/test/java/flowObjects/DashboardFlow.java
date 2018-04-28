@@ -1,4 +1,4 @@
-package flowObjects;
+package test.java.flowObjects;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import pageObjects.DashboardPage;
+import test.java.pageObjects.DashboardPage;
 
 public class DashboardFlow {
 

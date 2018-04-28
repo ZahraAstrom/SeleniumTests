@@ -1,4 +1,4 @@
-package testObjects;
+package test.java.testObjects;
 
 import java.net.URL;
 
@@ -11,9 +11,9 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import flowObjects.LogInFlow;
-import flowObjects.TextPostFlow;
-import pageObjects.TextPostPage;
+import test.java.flowObjects.LogInFlow;
+import test.java.flowObjects.TextPostFlow;
+import test.java.pageObjects.TextPostPage;
 
 
 public class TextPostTest {

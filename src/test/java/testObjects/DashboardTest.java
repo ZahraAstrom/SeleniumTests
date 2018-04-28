@@ -1,4 +1,4 @@
-package testObjects;
+package test.java.testObjects;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -13,9 +13,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import flowObjects.DashboardFlow;
-import flowObjects.LogInFlow;
-import pageObjects.DashboardPage;
+import test.java.flowObjects.DashboardFlow;
+import test.java.flowObjects.LogInFlow;
+import test.java.pageObjects.DashboardPage;
 
 public class DashboardTest {
 	
