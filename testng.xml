@@ -6,7 +6,7 @@
 	<parameter name="username" value="zahrateststumblr@mailinator.com"/>
 	<parameter name="password" value="testpass123"/>
     <classes>
-      <class name="testObjects.LogInTest"/>
+      <class name="test.java.testObjects.LogInTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
