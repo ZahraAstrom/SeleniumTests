@@ -6,9 +6,7 @@
 	<parameter name="username" value="zahrateststumblr@mailinator.com"/>
 	<parameter name="password" value="testpass123"/>
     <classes>
-      <class name="testObjects.DashboardTest"/>
       <class name="testObjects.LogInTest"/>
-      <class name="testObjects.TextPostTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
