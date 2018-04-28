@@ -1,10 +1,10 @@
-package flowObjects;
+package test.java.flowObjects;
 
 import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
 
-import pageObjects.TextPostPage;
+import test.java.pageObjects.TextPostPage;
 
 public class TextPostFlow {
 	

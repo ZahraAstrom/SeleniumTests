@@ -1,8 +1,8 @@
-package flowObjects;
+package test.java.flowObjects;
 
 import org.openqa.selenium.WebDriver;
 
-import pageObjects.LogInPage;
+import test.java.pageObjects.LogInPage;
 
 public class LogInFlow {
 	
